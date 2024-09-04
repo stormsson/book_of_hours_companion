@@ -1,0 +1,30 @@
+@import './variables';
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.filterInput {
+  background-color: lighten($background-color, 10%);
+  color: $text-color;
+  border: 1px solid $border-color;
+  padding: 0.5rem;
+  border-radius: 4px;
+  width: 200px;
+  margin-right: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.showKnownLabel {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+
+  input {
+    margin-right: 0.5rem;
+  }
+}

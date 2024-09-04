@@ -1,0 +1,44 @@
+@import './variables';
+
+.tooltipContainer {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltipText {
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: $accent-color;
+  color: $text-color;
+  text-align: left;
+  padding: 10px 15px;
+  border-radius: 6px;
+  z-index: 1000;
+  white-space: normal;
+  max-width: 500px; // Increased from 350px
+  width: max-content; // This ensures the tooltip takes the width of its content
+  min-width: 200px; // Set a minimum width
+  font-size: 0.9em;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: $accent-color transparent transparent transparent;
+  }
+}
+
+.tooltipContainer:hover .tooltipText {
+  opacity: 1;
+  visibility: visible;
+}
