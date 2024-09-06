@@ -3,7 +3,8 @@ import { useState, useEffect } from 'react';
 export const useTrackableTable = (storageKey: string) => {
   const [knownItems, setKnownItems] = useState<Set<string>>(new Set());
   const [isSimplifiedView, setIsSimplifiedView] = useState(() => {
-    const savedView = localStorage.getItem(`${storageKey}_simplifiedView`);
+    const settings = localStorage.getItem(`settings`);
+    const savedView = settings ? JSON.parse(settings).isSimplifiedView : false;
     return savedView ? JSON.parse(savedView) : false;
   });
 
@@ -25,11 +26,5 @@ export const useTrackableTable = (storageKey: string) => {
     localStorage.setItem(storageKey, JSON.stringify(Array.from(updatedKnownItems)));
   };
 
-  const toggleSimplifiedView = () => {
-    const newValue = !isSimplifiedView;
-    setIsSimplifiedView(newValue);
-    localStorage.setItem(`${storageKey}_simplifiedView`, JSON.stringify(newValue));
-  };
-
-  return { knownItems, isSimplifiedView, toggleKnownItem, toggleSimplifiedView };
+  return { knownItems, isSimplifiedView, toggleKnownItem };
 };

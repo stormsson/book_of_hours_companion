@@ -13,10 +13,14 @@ function AppSettings({ isSettingsOpen, setIsSettingsOpen, settings, setSettings 
   const settingsDrawerRef = useRef<HTMLDivElement>(null);
 
   const toggleSimplifiedView = () => {
-    setSettings(prevSettings => ({
-      ...prevSettings,
-      isSimplifiedView: !prevSettings.isSimplifiedView
-    }));
+    setSettings(prevSettings => {
+      const newSettings = {
+        ...prevSettings,
+        isSimplifiedView: !prevSettings.isSimplifiedView
+      };
+      localStorage.setItem('settings', JSON.stringify(newSettings));
+      return newSettings;
+    });
   };
 
   return (

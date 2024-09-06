@@ -28,6 +28,5 @@ export const WikiUrl = (str: string): string => {
  * @returns The string with content inside parentheses removed.
  */
 export const removeBracesContent = (str: string): string => {
-    console.log(str.replace(/\s*\(.*?\)\s*/g, ' ').trim())
     return str.replace(/\s*\(.*?\)\s*/g, ' ').trim(); // Remove content inside parentheses and trim whitespace
 };

@@ -4,6 +4,7 @@ import TrackableTable from './TrackableTable';
 import { Book } from '../types';
 import styles from './Tab.module.scss';
 import { Settings } from '../types';
+import { book_columns } from '../utils/constants';
 function BooksTab({ settings }: { settings: Settings }) {
   const [books, setBooks] = useState<Book[]>([]);
 
@@ -13,11 +14,11 @@ function BooksTab({ settings }: { settings: Settings }) {
     fetchBooks().then(setBooks);
   }, []);
 
-  const columns = ['Book', 'Aspect', 'Level', 'Memory', 'Memory Aspects', 'Lesson', 'Lessons', 'Lesson Aspects', 'Price', 'Language', 'Type', 'Period', 'Contaminated', 'Description'];
+
 
   return (
     <div className={styles.container}>
-      <TrackableTable items={books} columns={columns} storageKey="knownBooks" isCraftableItems={false} isSimplifiedView={settings.isSimplifiedView} />
+      <TrackableTable items={books} columns={book_columns} storageKey="knownBooks" isCraftableItems={false} isSimplifiedView={settings.isSimplifiedView} />
     </div>
   );
 }

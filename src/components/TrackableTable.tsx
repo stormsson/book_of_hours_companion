@@ -4,7 +4,8 @@ import styles from './TrackableTable.module.scss';
 import Tooltip from './Tooltip';
 import TableControls from './TableControls';
 import { useTrackableTable } from '../hooks/useTrackableTable';
-import { WikiUrl, includesIgnoreCase } from '../utils/stringHelpers'; // Import WikiUrl
+import { WikiUrl, includesIgnoreCase } from '../utils/stringHelpers'; 
+import { tooltip_columns, wiki_columns,ellipsis_columns } from '../utils/constants';
 
 interface TrackableTableProps {
   items: TrackableItem[];
@@ -55,32 +56,35 @@ function TrackableTable({ items, columns, storageKey, isCraftableItems, item_typ
       if (isCraftableItems) {
         return columns.filter(column => !['Level', 'Extra Requirement'].includes(column));
       } else {
-        return ['Book', 'Aspect', 'Memory', 'Memory Aspects', 'Language'];
+        return ['Book', 'Language', 'Memory', 'Memory Aspects', 'Lesson'];
       }
     }
     return columns;
   }, [isSimplifiedView, columns, isCraftableItems]);
 
   const renderCell = (item: TrackableItem, column: string, index: number) => {
-    if (index === 0) { // Check if it's the first column
-      return (
-        <div className={styles.ellipsisCell}>
-          <a href={WikiUrl(item[column])} target="_blank" rel="noopener noreferrer" className={styles.wikiLink}>
-            [🔗]
-          </a>
-          <span> {item[column]}</span>
-        </div>
-      );
-    }
-    if (column === 'Description') {
+
+    if (tooltip_columns.includes(column)) {
       return (
         <Tooltip text={item[column]}>
           <span className={styles.descriptionIcon}>🔍</span>
         </Tooltip>
       );
-    }
+    } else {
+        return (
+        <div className={ellipsis_columns.includes(column) ? styles.ellipsisCell : ''}>
+          {wiki_columns.includes(column) && (
+            <a href={WikiUrl(item[column])} target="_blank" rel="noopener noreferrer" className={styles.wikiLink}>
+              [🔗]
+          </a>)}
+          <span> {item[column]}</span>
+        </div>
+      );
 
-    if (column === 'Required Skill') {
+    }
+    
+
+    if (wiki_columns.includes(column)) {
       return (
         <div className={styles.ellipsisCell}>
           <a href={WikiUrl(item[column])} target="_blank" rel="noopener noreferrer" className={styles.wikiLink}>
@@ -90,6 +94,8 @@ function TrackableTable({ items, columns, storageKey, isCraftableItems, item_typ
         </div>
       );
     }
+    // if (column === 'Required Skill') {
+    // }
 
     return item[column];
   };

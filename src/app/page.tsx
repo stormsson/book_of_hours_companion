@@ -11,8 +11,13 @@ import { Settings } from '../types';
 export default function Home() {
   const [activeTab, setActiveTab] = useState<TrackableType>('books');
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
-  const [settings, setSettings] = useState<Settings>({
-    isSimplifiedView: false,
+  const [settings, setSettings] = useState<Settings>(() => {
+    const savedSettings = localStorage.getItem('settings');
+    if (!savedSettings) {
+      localStorage.setItem('settings', JSON.stringify({ isSimplifiedView: false }));
+      return { isSimplifiedView: false };
+    }
+    return savedSettings ? JSON.parse(savedSettings) : { isSimplifiedView: false };
   });
 
   return (
