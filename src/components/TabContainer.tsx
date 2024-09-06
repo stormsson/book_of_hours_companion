@@ -3,13 +3,14 @@ import BooksTab from './BooksTab';
 import CraftableItemsTab from './CraftableItemsTab';
 import { TrackableType } from '../types';
 import styles from './TabContainer.module.scss';
-
+import { Settings } from '../types';
 interface TabContainerProps {
   activeTab: TrackableType;
   setActiveTab: (tab: TrackableType) => void;
+  settings: Settings;
 }
 
-function TabContainer({ activeTab, setActiveTab }: TabContainerProps) {
+function TabContainer({ activeTab, setActiveTab, settings }: TabContainerProps) {
   return (
     <div className={styles.container}>
       <div className={styles.tabs}>
@@ -21,8 +22,8 @@ function TabContainer({ activeTab, setActiveTab }: TabContainerProps) {
         </button>
       </div>
       <div className={styles.tabContent}>
-        {activeTab === 'books' && <BooksTab />}
-        {activeTab === 'craftableItems' && <CraftableItemsTab />}
+        {activeTab === 'books' && <BooksTab settings={settings} />}
+        {activeTab === 'craftableItems' && <CraftableItemsTab settings={settings} />}
       </div>
     </div>
   );

@@ -82,3 +82,17 @@ $accent-color: #3a506b;
 #label {
   margin-right: 1rem;
 }
+
+.stickyHeader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: flex-end; // Change this to align content to the right
+  align-items: center; // Change this to center vertically
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background-color: $background-color; // Add this to match the app's background
+}

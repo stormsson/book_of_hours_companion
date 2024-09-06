@@ -1,3 +1,7 @@
+export interface Settings {
+  isSimplifiedView: boolean;
+}
+
 export type TrackableType = 'books' | 'craftableItems';
 
 export interface TrackableItem {
@@ -31,3 +35,4 @@ export interface CraftableItem extends TrackableItem {
   Result: string;
   'Result Aspects': string;
 }
+

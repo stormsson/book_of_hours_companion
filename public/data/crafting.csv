@@ -7,18 +7,18 @@ Torgue's Cleansing (Memory),Edge,5,Disciplines of the Scar,,Edge 2
 Torgue's Cleansing (Memory),Edge,5,Auroral Contemplations,,Edge 2
 Torgue's Cleansing (Memory),Edge,5,Sharps,,Edge 2
 Torgue's Cleansing (Memory),Edge,5,Meniscate Reflections,,Edge 2
-Perinculate (Liquid),Edge,10,Disciplines of the Scar,Leaf,Edge 4 / Scale 4
-Perinculate (Liquid),Edge,10,Edicts Martial,Leaf,Edge 4 / Scale 4
-Perinculate (Liquid),Edge,10,Sickle & Eclipse,Leaf,Edge 4 / Scale 4
+"Perinculate (Liquid, Ink)",Edge,10,Disciplines of the Scar,Leaf,Edge 4 / Scale 4
+"Perinculate (Liquid, Ink)",Edge,10,Edicts Martial,Leaf,Edge 4 / Scale 4
+"Perinculate (Liquid, Ink)",Edge,10,Sickle & Eclipse,Leaf,Edge 4 / Scale 4
 Winning Move (Memory),Edge,10,Disciplines of the Hammer,Memory,Edge 3
 Winning Move (Memory),Edge,10,Auroral Contemplations,Memory,Edge 3
 Winning Move (Memory),Edge,10,Meniscate Reflections,Memory,Edge 3
 Winning Move (Memory),Edge,10,Sharps,Memory,Edge 3
 Winning Move (Memory),Edge,10,Ragged Crossroads,Memory,Edge 3
-Serpent-Milk (Beverage),Edge,15,Sickle & Eclipse,Perinculate (Liquid),Edge 6 / Knock 2 / Scale 3
-Serpent-Milk (Beverage),Edge,15,Sharps,Perinculate (Liquid),Edge 6 / Knock 2 / Scale 3
-Serpent-Milk (Beverage),Edge,15,Meniscate Reflections,Perinculate (Liquid),Edge 6 / Knock 2 / Scale 3
-Serpent-Milk (Beverage),Edge,15,Disciplines of the Scar,Perinculate (Liquid),Edge 6 / Knock 2 / Scale 3
+Serpent-Milk (Beverage),Edge,15,Sickle & Eclipse,Perinculate,Edge 6 / Knock 2 / Scale 3
+Serpent-Milk (Beverage),Edge,15,Sharps,Perinculate,Edge 6 / Knock 2 / Scale 3
+Serpent-Milk (Beverage),Edge,15,Meniscate Reflections,Perinculate,Edge 6 / Knock 2 / Scale 3
+Serpent-Milk (Beverage),Edge,15,Disciplines of the Scar,Perinculate,Edge 6 / Knock 2 / Scale 3
 Invincible Audacity (Persistent Memory),Edge,15,Disciplines of the Hammer,Winning Move (Memory),Edge 6 / Forge 3 / Lantern 3
 Invincible Audacity (Persistent Memory),Edge,15,Edicts Martial,Winning Move (Memory),Edge 6 / Forge 3 / Lantern 3
 Invincible Audacity (Persistent Memory),Edge,15,Auroral Contemplations,Winning Move (Memory),Edge 6 / Forge 3 / Lantern 3
@@ -84,8 +84,8 @@ Flushed Mommet (Device),Grail,15,Pentiments & Precursors,Pale Mommet (Device),Gr
 Flushed Mommet (Device),Grail,15,Desires & Dissolutions,Pale Mommet (Device),Grail 6 / Heart 3 / Moth 3
 Cheerful Ditty (Memory),Heart,5,Strings & Songs,,Heart 2 / Sky 1
 Cheerful Ditty (Memory),Heart,5,Drums & Dances,,Heart 2 / Sky 1
-Perhibiate (Liquid),Heart,5,Stitching & Binding,,Heart 2 / Lantern 2 / Scale 2 / Winter 1
-Perhibiate (Liquid),Heart,5,Weaving & Knotworking,,Heart 2 / Lantern 2 / Scale 2 / Winter 1
+"Perhibiate (Liquid, Ink)",Heart,5,Stitching & Binding,,Heart 2 / Lantern 2 / Scale 2 / Winter 1
+"Perhibiate (Liquid, Ink)",Heart,5,Weaving & Knotworking,,Heart 2 / Lantern 2 / Scale 2 / Winter 1
 Regensburg Balm (Liquid),Heart,5,Herbs & Infusions,,Heart 2 / Nectar 2
 Regensburg Balm (Liquid),Heart,5,Quenchings & Quellings,,Heart 2 / Nectar 2
 Regensburg Balm (Liquid),Heart,5,Surgeries & Exsanguinations,,Heart 2 / Nectar 2
@@ -160,16 +160,16 @@ Ichor Vitreous (Liquid),Lantern,10,Inks of Revelation,Glass,Lantern 4
 Old Moment (Memory),Lantern,10,Disciplines of the Scar,Memory,Lantern 2 / Moth 2 / Scale 4
 Uzult (Liquid),Lantern,15,Inks of Revelation,Xanthotic Essence (Liquid),Lantern 7 / Moth 7 / Sky 7
 Uzult (Liquid),Lantern,15,Sacra Solis Invicti,Xanthotic Essence (Liquid),Lantern 7 / Moth 7 / Sky 7
-Ashartine (Liquid),Lantern,15,Pyroglyphics,Ichor Vitreous (Liquid),Lantern 6 / Sky 2
-Ashartine (Liquid),Lantern,15,Watchman's Paradoxes,Ichor Vitreous (Liquid),Lantern 6 / Sky 2
-Ashartine (Liquid),Lantern,15,Glaziery & Lightsmithing,Ichor Vitreous (Liquid),Lantern 6 / Sky 2
+"Ashartine (Liquid, Ink)",Lantern,15,Pyroglyphics,Ichor Vitreous (Liquid),Lantern 6 / Sky 2
+"Ashartine (Liquid, Ink)",Lantern,15,Watchman's Paradoxes,Ichor Vitreous (Liquid),Lantern 6 / Sky 2
+"Ashartine (Liquid, Ink)",Lantern,15,Glaziery & Lightsmithing,Ichor Vitreous (Liquid),Lantern 6 / Sky 2
 Uzult (Liquid),Lantern,15,Watchman's Paradoxes,Xanthotic Essence (Liquid),Lantern 7 / Moth 7 / Sky 7
 Porphyrine (Liquid),Lantern,15,Auroral Contemplations,Ichor Auroral (Liquid),Knock 7 / Moon 7 / Rose 7
 Earthquake Name (Persistent Memory),Lantern,15,Disciplines of the Scar,Old Moment (Memory),Forge 3 / Scale 6
 Uzult (Liquid),Lantern,15,Glaziery & Lightsmithing,Xanthotic Essence (Liquid),Lantern 7 / Moth 7 / Sky 7
 Xanthotic Essence (Liquid),Lantern,15,Purifications & Exaltations,Bitterblack Salts (Material),Forge 2 / Knock 2 / Lantern 5
 Xanthotic Essence (Liquid),Lantern,15,Purifications & Exaltations,Iotic Essence (Liquid),Forge 2 / Knock 2 / Lantern 5
-Ashartine (Liquid),Lantern,15,Glassblowing & Vesselcrafting,Ichor Vitreous (Liquid),Lantern 6 / Sky 2
+"Ashartine (Liquid, Ink)",Lantern,15,Glassblowing & Vesselcrafting,Ichor Vitreous (Liquid),Lantern 6 / Sky 2
 Uzult (Liquid),Lantern,15,Anbary & Lapidary,Xanthotic Essence (Liquid),Lantern 7 / Moth 7 / Sky 7
 Midnight Mark (Mark),Moon,5,Sharps,,Moon 2 / Moth 1
 Midnight Mark (Mark),Moon,5,Desires & Dissolutions,,Moon 2 / Moth 1
@@ -178,11 +178,11 @@ Midnight Mark (Mark),Moon,5,Serpents & Venoms,,Moon 2 / Moth 1
 Midnight Mark (Mark),Moon,5,Insects & Nectars,,Moon 2 / Moth 1
 Midnight Mark (Mark),Moon,5,Wolf Stories,,Moon 2 / Moth 1
 Midnight Mark (Mark),Moon,5,Rhyme & Remembrance,,Moon 2 / Moth 1
-Catwink (Liquid),Moon,5,Inks of Containment,,Moon 2 / Scale 2
-Catwink (Liquid),Moon,5,Sickle & Eclipse,,Moon 2 / Scale 2
-Catwink (Liquid),Moon,5,Sand Stories,,Moon 2 / Scale 2
-Catwink (Liquid),Moon,5,Putrefactions & Calcinations,,Moon 2 / Scale 2
-Catwink (Liquid),Moon,5,Edicts Inviolable,,Moon 2 / Scale 2
+"Catwink (Liquid,Ink,Thing)",Moon,5,Inks of Containment,,Moon 2 / Scale 2
+"Catwink (Liquid,Ink,Thing)",Moon,5,Sickle & Eclipse,,Moon 2 / Scale 2
+"Catwink (Liquid,Ink,Thing)",Moon,5,Sand Stories,,Moon 2 / Scale 2
+"Catwink (Liquid,Ink,Thing)",Moon,5,Putrefactions & Calcinations,,Moon 2 / Scale 2
+"Catwink (Liquid,Ink,Thing)",Moon,5,Edicts Inviolable,,Moon 2 / Scale 2
 Confounding Parable (Memory),Moon,5,Tridesma Hiera,,Moon 2 / Rose 2 / Sky 2
 Salt-Sign (Mark),Moon,5,Sea Stories,,Moon 2 / Rose 2
 Salt-Sign (Mark),Moon,5,Hill & Hollow,,Moon 2 / Rose 2
@@ -304,7 +304,7 @@ Horizon-Sight (Persistent Memory),Rose,15,Sky Stories,Enduring Reflection (Persi
 Horizon-Sight (Persistent Memory),Rose,15,Path & Pilgrim,Enduring Reflection (Persistent Memory),Rose 4
 Porphyrine (Liquid),Rose,15,Sand Stories,Ichor Auroral (Liquid),Knock 7 / Moon 7 / Rose 7
 Porphyrine (Liquid),Rose,15,Inks of Power,Ichor Auroral (Liquid),Knock 7 / Moon 7 / Rose 7
-Perhibiate (Liquid),Scale,5,Inks of Power,,Heart 2 / Lantern 2 / Scale 2 / Winter 1
+"Perhibiate (Liquid, Ink)",Scale,5,Inks of Power,,Heart 2 / Lantern 2 / Scale 2 / Winter 1
 Bisclavret's Knot (Mark),Scale,5,Path & Pilgrim,,Moth 1 / Scale 2
 Bisclavret's Knot (Mark),Scale,5,Serpents & Venoms,,Moth 1 / Scale 2
 Bisclavret's Knot (Mark),Scale,5,Coil & Chasm,,Moth 1 / Scale 2
@@ -315,7 +315,7 @@ Bisclavret's Knot (Mark),Scale,5,Furs & Feathers,,Moth 1 / Scale 2
 Bisclavret's Knot (Mark),Scale,5,Wolf Stories,,Moth 1 / Scale 2
 Bisclavret's Knot (Mark),Scale,5,Pentiments & Precursors,,Moth 1 / Scale 2
 Bisclavret's Knot (Mark),Scale,5,Hill & Hollow,,Moth 1 / Scale 2
-Perinculate (Liquid),Scale,10,Inks of Power,Leaf,Edge 4 / Scale 4
+"Perinculate (Liquid, Ink)",Scale,10,Inks of Power,Leaf,Edge 4 / Scale 4
 Glassfinger Toxin (Liquid),Scale,10,Serpents & Venoms,Liquid,Forge 2 / Knock 4 / Lantern 2
 Living Relic (Carnivore),Scale,10,Hill & Hollow,Egg,Heart 1 / Scale 4 / Sky 2
 Living Relic (Carnivore),Scale,10,Furs & Feathers,Egg,Heart 1 / Scale 4 / Sky 2
@@ -329,11 +329,11 @@ Earthquake Name (Persistent Memory),Scale,15,Stone Stories,Old Moment (Memory),F
 Earthquake Name (Persistent Memory),Scale,15,Coil & Chasm,Old Moment (Memory),Forge 3 / Scale 6
 Earthquake Name (Persistent Memory),Scale,15,Hill & Hollow,Old Moment (Memory),Forge 3 / Scale 6
 Earthquake Name (Persistent Memory),Scale,15,Wolf Stories,Old Moment (Memory),Forge 3 / Scale 6
-Houndsgall (Liquid),Scale,15,Inks of Containment,Living Relic (Carnivore),Heart 2 / Scale 5
-Houndsgall (Liquid),Scale,15,Horns & Ivories,Living Relic (Carnivore),Heart 2 / Scale 5
-Houndsgall (Liquid),Scale,15,Path & Pilgrim,Living Relic (Carnivore),Heart 2 / Scale 5
-Houndsgall (Liquid),Scale,15,Pentiments & Precursors,Living Relic (Carnivore),Heart 2 / Scale 5
-Serpent-Milk (Beverage),Scale,15,Serpents & Venoms,Perinculate (Liquid),Edge 6 / Knock 2 / Scale 3
+"Houndsgall (Liquid, Ink)",Scale,15,Inks of Containment,Living Relic (Carnivore),Heart 2 / Scale 5
+"Houndsgall (Liquid, Ink)",Scale,15,Horns & Ivories,Living Relic (Carnivore),Heart 2 / Scale 5
+"Houndsgall (Liquid, Ink)",Scale,15,Path & Pilgrim,Living Relic (Carnivore),Heart 2 / Scale 5
+"Houndsgall (Liquid, Ink)",Scale,15,Pentiments & Precursors,Living Relic (Carnivore),Heart 2 / Scale 5
+"Serpent-Milk (Beverage)",Scale,15,Serpents & Venoms,Perinculate,Edge 6 / Knock 2 / Scale 3
 Torgue's Cleansing (Memory),Sky,5,Purifications & Exaltations,,Edge 2
 Confounding Parable (Memory),Sky,5,Applebright Euphonies,,Moon 2 / Rose 2 / Sky 2
 Confounding Parable (Memory),Sky,5,Sacra Solis Invicti,,Moon 2 / Rose 2 / Sky 2
@@ -349,9 +349,9 @@ Wistful Air (Memory),Sky,5,Watchman's Paradoxes,,Rose 2 / Sky 2
 Wistful Air (Memory),Sky,5,Sky Stories,,Rose 2 / Sky 2
 Dearday Lens (Device),Sky,5,Glaziery & Lightsmithing,,Edge 1 / Forge 1 / Lantern 2 / Sky 2
 Awakened Feather (Material),Sky,5,Furs & Feathers,,Scale 1 / Sky 2
-Stargall Ink (Liquid),Sky,5,Inks of Power,,Sky 2
-Stargall Ink (Liquid),Sky,5,Inks of Revelation,,Sky 2
-Stargall Ink (Liquid),Sky,5,Inks of Containment,,Sky 2
+"Stargall Ink (Liquid, Ink)",Sky,5,Inks of Power,,Sky 2
+"Stargall Ink (Liquid, Ink)",Sky,5,Inks of Revelation,,Sky 2
+"Stargall Ink (Liquid, Ink)",Sky,5,Inks of Containment,,Sky 2
 Dearday Lens (Device),Sky,5,Glassblowing & Vesselcrafting,,Edge 1 / Forge 1 / Lantern 2 / Sky 2
 Wire (Orichalcum) (Material),Sky,10,Lockworks & Clockworks,Metal,Forge 4 / Lantern 1
 Gervinite (Material),Sky,10,Glaziery & Lightsmithing,Metal,Knock 4 / Rose 2
@@ -369,7 +369,7 @@ Ascendant Harmony (Persistent Memory),Sky,10,Strings & Songs,Instrument,Lantern 
 Ascendant Harmony (Persistent Memory),Sky,10,Bells & Brazieries,Instrument,Lantern 2 / Sky 4
 Ascendant Harmony (Persistent Memory),Sky,10,Purifications & Exaltations,Instrument,Lantern 2 / Sky 4
 Ichor Vitreous (Liquid),Sky,10,Glassblowing & Vesselcrafting,Glass,Lantern 4
-Ashartine (Liquid),Sky,15,Anbary & Lapidary,Ichor Vitreous (Liquid),Lantern 6 / Sky 2
+"Ashartine (Liquid, Ink)",Sky,15,Anbary & Lapidary,Ichor Vitreous (Liquid),Lantern 6 / Sky 2
 Wind-in-Waiting (Persistent Memory),Sky,15,Strings & Songs,Mazarine Fife,Grail 3 / Moth 3 / Scale 3 / Sky 6
 Wind-in-Waiting (Persistent Memory),Sky,15,Sky Stories,Mazarine Fife,Grail 3 / Moth 3 / Scale 3 / Sky 6
 Wind-in-Waiting (Persistent Memory),Sky,15,Sacra Solis Invicti,Mazarine Fife,Grail 3 / Moth 3 / Scale 3 / Sky 6
@@ -380,9 +380,9 @@ Didumos (Persistent Memory),Sky,15,Sights & Sensations,Ascendant Harmony (Persis
 Didumos (Persistent Memory),Sky,15,Bells & Brazieries,Ascendant Harmony (Persistent Memory),Knock 3 / Lantern 3 / Sky 6 / Winter 3
 Didumos (Persistent Memory),Sky,15,Applebright Euphonies,Ascendant Harmony (Persistent Memory),Knock 3 / Lantern 3 / Sky 6 / Winter 3
 Didumos (Persistent Memory),Sky,15,Sacra Limiae,Ascendant Harmony (Persistent Memory),Knock 3 / Lantern 3 / Sky 6 / Winter 3
-Ashartine (Liquid),Sky,15,Glassblowing & Vesselcrafting,Ichor Vitreous (Liquid),Lantern 6 / Sky 2
+"Ashartine (Liquid, Ink)",Sky,15,Glassblowing & Vesselcrafting,Ichor Vitreous (Liquid),Lantern 6 / Sky 2
 Year-Tally (Mark),Sky,15,Ouranoscopy,Essential Periost (Remains),Winter 6
-Yewgall Ink (Liquid),Winter,5,Putrefactions & Calcinations,,Nectar 2
+"Yewgall Ink (Liquid, Ink)",Winter,5,Putrefactions & Calcinations,,Nectar 2
 Bittersweet Certainty (Memory),Winter,5,Rhyme & Remembrance,,Lantern 1 / Winter 2
 Bittersweet Certainty (Memory),Winter,5,Ragged Crossroads,,Lantern 1 / Winter 2
 Bittersweet Certainty (Memory),Winter,5,Snow Stories,,Lantern 1 / Winter 2
@@ -390,7 +390,7 @@ Eigengrau (Beverage),Winter,5,Sights & Sensations,,Moon 1 / Winter 1
 Eigengrau (Beverage),Winter,5,Quenchings & Quellings,,Moon 1 / Winter 1
 Eigengrau (Beverage),Winter,5,Inks of Containment,,Moon 1 / Winter 1
 Bittersweet Certainty (Memory),Winter,5,Ouranoscopy,,Lantern 1 / Winter 2
-Perinculate (Liquid),Winter,10,Putrefactions & Calcinations,Leaf,Edge 4 / Scale 4
+"Perinculate (Liquid, Ink)",Winter,10,Putrefactions & Calcinations,Leaf,Edge 4 / Scale 4
 Solomon's Preparation (Beverage),Winter,10,Sights & Sensations,Flower,Moon 1 / Moth 1 / Winter 4
 Solomon's Preparation (Beverage),Winter,10,Ragged Crossroads,Flower,Moon 1 / Moth 1 / Winter 4
 Solomon's Preparation (Beverage),Winter,10,Quenchings & Quellings,Flower,Moon 1 / Moth 1 / Winter 4

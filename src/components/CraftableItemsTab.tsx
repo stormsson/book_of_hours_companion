@@ -3,8 +3,9 @@ import React, { useEffect, useState } from 'react';
 import TrackableTable from './TrackableTable';
 import { CraftableItem } from '../types';
 import styles from './Tab.module.scss';
+import { Settings } from '../types';
 
-function CraftableItemsTab() {
+function CraftableItemsTab({ settings }: { settings: Settings }) {
   const [craftableItems, setCraftableItems] = useState<CraftableItem[]>([]);
 
   useEffect(() => {
@@ -15,7 +16,7 @@ function CraftableItemsTab() {
 
   const columns = ['Item', 'Aspect', 'Level', 'Required Skill', 'Extra Requirement', 'Result Aspects'];
 
-  const item_types = ['Beast', 'Beverage', 'Carnivore', 'Device', 'Fabric', 'Flower', 'Fruit', 'Herbivore', 'Liquid', 'Mark', 'Material', 'Memory', 'Orichalcum', 'Persistent Memory', 'Remains', 'Silver', 'Sustenance', 'Wood']
+  const item_types = ['Beast', 'Beverage', 'Carnivore', 'Device', 'Fabric', 'Flower', 'Fruit', 'Herbivore', 'Ink', 'Liquid', 'Mark', 'Material', 'Memory', 'Orichalcum', 'Persistent Memory', 'Remains', 'Silver', 'Sustenance', 'Thing', 'Wood']
 
   return (
     <div className={styles.container}>
@@ -25,6 +26,7 @@ function CraftableItemsTab() {
         storageKey="knownCraftableItems" 
         isCraftableItems={true} 
         item_types={item_types} // Pass the item_types prop
+        isSimplifiedView={settings.isSimplifiedView}
       />
     </div>
   );
