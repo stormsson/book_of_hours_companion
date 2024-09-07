@@ -24,6 +24,7 @@ function TrackableTable({ items, columns, storageKey, isCraftableItems, item_typ
   const [itemTypeFilter, setItemTypeFilter] = useState('');
 
   let isSimplifiedView = settings.options.isSimplifiedView;
+  console.log('isSimplifiedView', isSimplifiedView);
 
   // Use the custom hook
   const { knownItems, toggleKnownItem } = useTrackableTable(storageKey, settings, setSettings);

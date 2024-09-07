@@ -16,23 +16,24 @@ function AppSettings({ isSettingsOpen, setIsSettingsOpen, settings, setSettings 
   const toggleSimplifiedView = async () => {
     const newSettings = {
       ...settings,
-      isSimplifiedView: !settings.options.isSimplifiedView
+      options: {
+        ...settings.options,
+        isSimplifiedView: !settings.options.isSimplifiedView // Correctly update the nested property
+      }
     };
     setSettings(newSettings);
-
+    
+    console.log(settings.options, newSettings.options);
     try {
-      const response = await fetch('/api/userSettings');
-      const userSettings = await response.json();
-      if (userSettings) {
-        userSettings.options.isSimplifiedView = newSettings.isSimplifiedView;
-        await fetch('/api/userSettings', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(userSettings),
-        });
-      }
+
+      await fetch('/api/userSettings', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newSettings),
+      });
+      
     } catch (error) {
       console.error('Error updating user settings:', error);
     }
