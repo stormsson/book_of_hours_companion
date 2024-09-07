@@ -3,9 +3,11 @@ import React, { useEffect, useState } from 'react';
 import TrackableTable from './TrackableTable';
 import { Book } from '../types';
 import styles from './Tab.module.scss';
-import { Settings } from '../types';
+import { DBUserSettings } from '../types';
 import { book_columns } from '../utils/constants';
-function BooksTab({ settings }: { settings: Settings }) {
+
+
+function BooksTab({ settings, setSettings }: { settings: DBUserSettings, setSettings: (settings: DBUserSettings) => void }) {
   const [books, setBooks] = useState<Book[]>([]);
 
   useEffect(() => {
@@ -18,7 +20,7 @@ function BooksTab({ settings }: { settings: Settings }) {
 
   return (
     <div className={styles.container}>
-      <TrackableTable items={books} columns={book_columns} storageKey="knownBooks" isCraftableItems={false} isSimplifiedView={settings.isSimplifiedView} />
+      <TrackableTable items={books} columns={book_columns} storageKey="knownBooks" isCraftableItems={false} settings={settings} setSettings={setSettings} />
     </div>
   );
 }

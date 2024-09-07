@@ -3,9 +3,9 @@ import React, { useEffect, useState } from 'react';
 import TrackableTable from './TrackableTable';
 import { CraftableItem } from '../types';
 import styles from './Tab.module.scss';
-import { Settings } from '../types';
+import { DBUserSettings } from '../types';
 
-function CraftableItemsTab({ settings }: { settings: Settings }) {
+function CraftableItemsTab({ settings, setSettings }: { settings: DBUserSettings, setSettings: (settings: DBUserSettings) => void }) {
   const [craftableItems, setCraftableItems] = useState<CraftableItem[]>([]);
 
   useEffect(() => {
@@ -26,7 +26,8 @@ function CraftableItemsTab({ settings }: { settings: Settings }) {
         storageKey="knownCraftableItems" 
         isCraftableItems={true} 
         item_types={item_types} // Pass the item_types prop
-        isSimplifiedView={settings.isSimplifiedView}
+        settings={settings}
+        setSettings={setSettings}
       />
     </div>
   );

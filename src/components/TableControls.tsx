@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './TableControls.module.scss';
 
 interface TableControlsProps {
@@ -20,6 +20,21 @@ function TableControls({
   setShowOnlyKnown,
   isCraftableItems
 }: TableControlsProps) {
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setFilterText('');
+        setAspectFilter('');
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [setFilterText, setAspectFilter, setShowOnlyKnown]);
+
   return (
     <div className={styles.controls}>
       <input

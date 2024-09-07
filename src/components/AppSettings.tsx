@@ -1,26 +1,58 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import styles from './AppSettings.module.scss';
-import { Settings } from '../types';
+import { DBUserSettings } from '../types';
 
 interface AppSettingsProps {
   isSettingsOpen: boolean;
   setIsSettingsOpen: (isOpen: boolean) => void;
-  settings: Settings;
-  setSettings: React.Dispatch<React.SetStateAction<Settings>>;
+  settings: DBUserSettings;
+  setSettings: any;
 }
 
 function AppSettings({ isSettingsOpen, setIsSettingsOpen, settings, setSettings }: AppSettingsProps) {
   const settingsDrawerRef = useRef<HTMLDivElement>(null);
 
-  const toggleSimplifiedView = () => {
-    setSettings(prevSettings => {
-      const newSettings = {
-        ...prevSettings,
-        isSimplifiedView: !prevSettings.isSimplifiedView
-      };
-      localStorage.setItem('settings', JSON.stringify(newSettings));
-      return newSettings;
-    });
+  // useEffect(() => {
+  //   const fetchSettings = async () => {
+  //     try {
+  //       const response = await fetch('/api/userSettings');
+  //       const userSettings = await response.json();
+  //       if (userSettings) {
+  //         setSettings({
+  //           ...settings,
+  //           isSimplifiedView: userSettings.options.isSimplifiedView
+  //         });
+  //       }
+  //     } catch (error) {
+  //       console.error('Error fetching user settings:', error);
+  //     }
+  //   };
+  //   fetchSettings();
+  // }, [settings, setSettings]);
+
+  const toggleSimplifiedView = async () => {
+    const newSettings = {
+      ...settings,
+      isSimplifiedView: !settings.options.isSimplifiedView
+    };
+    setSettings(newSettings);
+
+    try {
+      const response = await fetch('/api/userSettings');
+      const userSettings = await response.json();
+      if (userSettings) {
+        userSettings.options.isSimplifiedView = newSettings.isSimplifiedView;
+        await fetch('/api/userSettings', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(userSettings),
+        });
+      }
+    } catch (error) {
+      console.error('Error updating user settings:', error);
+    }
   };
 
   return (
@@ -36,7 +68,7 @@ function AppSettings({ isSettingsOpen, setIsSettingsOpen, settings, setSettings 
             <label>
               <input
                 type="checkbox"
-                checked={settings.isSimplifiedView}
+                checked={settings.options.isSimplifiedView}
                 onChange={toggleSimplifiedView}
               />
               Simplified View

@@ -6,24 +6,27 @@ import TableControls from './TableControls';
 import { useTrackableTable } from '../hooks/useTrackableTable';
 import { WikiUrl, includesIgnoreCase } from '../utils/stringHelpers'; 
 import { tooltip_columns, wiki_columns,ellipsis_columns } from '../utils/constants';
-
+import { DBUserSettings } from '../types';
 interface TrackableTableProps {
   items: TrackableItem[];
   columns: string[];
   storageKey: string;
   isCraftableItems: boolean;
   item_types?: string[];
-  isSimplifiedView: boolean; // New prop
+  settings: DBUserSettings;
+  setSettings: (settings: DBUserSettings) => void;
 }
 
-function TrackableTable({ items, columns, storageKey, isCraftableItems, item_types, isSimplifiedView }: TrackableTableProps) {
+function TrackableTable({ items, columns, storageKey, isCraftableItems, item_types, settings, setSettings }: TrackableTableProps) {
   const [showOnlyKnown, setShowOnlyKnown] = useState(false);
   const [filterText, setFilterText] = useState('');
   const [aspectFilter, setAspectFilter] = useState('');
   const [itemTypeFilter, setItemTypeFilter] = useState('');
 
+  let isSimplifiedView = settings.options.isSimplifiedView;
+
   // Use the custom hook
-  const { knownItems, toggleKnownItem } = useTrackableTable(storageKey);
+  const { knownItems, toggleKnownItem } = useTrackableTable(storageKey, settings, setSettings);
 
   const filteredItems = useMemo(() => {
     return items.filter(item => {
@@ -81,23 +84,7 @@ function TrackableTable({ items, columns, storageKey, isCraftableItems, item_typ
         </div>
       );
 
-    }
-    
-
-    if (wiki_columns.includes(column)) {
-      return (
-        <div className={styles.ellipsisCell}>
-          <a href={WikiUrl(item[column])} target="_blank" rel="noopener noreferrer" className={styles.wikiLink}>
-            [🔗]
-          </a>
-          <span> {item[column]}</span>
-        </div>
-      );
-    }
-    // if (column === 'Required Skill') {
-    // }
-
-    return item[column];
+    }    
   };
 
   return (

@@ -3,14 +3,15 @@ import BooksTab from './BooksTab';
 import CraftableItemsTab from './CraftableItemsTab';
 import { TrackableType } from '../types';
 import styles from './TabContainer.module.scss';
-import { Settings } from '../types';
+import { DBUserSettings } from '../types';
 interface TabContainerProps {
   activeTab: TrackableType;
   setActiveTab: (tab: TrackableType) => void;
-  settings: Settings;
+  settings: DBUserSettings;
+  setSettings: (settings: DBUserSettings) => void;
 }
 
-function TabContainer({ activeTab, setActiveTab, settings }: TabContainerProps) {
+function TabContainer({ activeTab, setActiveTab, settings, setSettings }: TabContainerProps) {
   return (
     <div className={styles.container}>
       <div className={styles.tabs}>
@@ -22,8 +23,8 @@ function TabContainer({ activeTab, setActiveTab, settings }: TabContainerProps) 
         </button>
       </div>
       <div className={styles.tabContent}>
-        {activeTab === 'books' && <BooksTab settings={settings} />}
-        {activeTab === 'craftableItems' && <CraftableItemsTab settings={settings} />}
+        {activeTab === 'books' && <BooksTab settings={settings} setSettings={setSettings} />}
+        {activeTab === 'craftableItems' && <CraftableItemsTab settings={settings} setSettings={setSettings} />}
       </div>
     </div>
   );

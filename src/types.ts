@@ -1,5 +1,7 @@
-export interface Settings {
-  isSimplifiedView: boolean;
+import { ObjectId } from "mongodb";
+
+export interface IGenericObject {
+  [key: string]: any;
 }
 
 export type TrackableType = 'books' | 'craftableItems';
@@ -36,3 +38,19 @@ export interface CraftableItem extends TrackableItem {
   'Result Aspects': string;
 }
 
+// MONGO
+export interface DBOption {
+  _id: ObjectId;
+  option_name: string;
+  option_value: string | string[];
+}
+
+
+export interface DBUserSettings {
+    _id?:ObjectId
+    known_craftable_items: string[];
+    known_books: string[];
+    options: {
+      isSimplifiedView: boolean;
+    }
+  }
