@@ -1,4 +1,4 @@
-import Papa from 'papaparse';
+// import Papa from 'papaparse';
 import React, { useEffect, useState } from 'react';
 import TrackableTable from './TrackableTable';
 import { Book } from '../types';
@@ -6,6 +6,7 @@ import styles from './Tab.module.scss';
 import { DBUserSettings } from '../types';
 import { book_columns } from '../utils/constants';
 
+import { fetchBooks } from '../app/actions';
 
 function BooksTab({ settings, setSettings }: { settings: DBUserSettings, setSettings: (settings: DBUserSettings) => void }) {
   const [books, setBooks] = useState<Book[]>([]);
@@ -26,30 +27,3 @@ function BooksTab({ settings, setSettings }: { settings: DBUserSettings, setSett
 }
 
 export default BooksTab;
-
-// Placeholder function to simulate fetching books data
-async function fetchBooks(): Promise<Book[]> {
-  try {
-    const response = await fetch('/data/books.csv');
-    const csvText = await response.text();
-    
-    return new Promise((resolve, reject) => {
-      Papa.parse(csvText, {
-        header: true,
-        complete: (results) => {
-          const books: Book[] = results.data.map((book: any, index) => ({
-            id: `book-${index}`,
-            ...book
-          }));
-          resolve(books);
-        },
-        error: (error: any) => {
-          reject(error);
-        }
-      });
-    });
-  } catch (error) {
-    console.error('Error fetching books:', error);
-    return [];
-  }
-}

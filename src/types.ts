@@ -45,12 +45,18 @@ export interface DBOption {
   option_value: string | string[];
 }
 
-
 export interface DBUserSettings {
-    _id?:ObjectId
-    known_craftable_items: string[];
-    known_books: string[];
-    options: {
-      isSimplifiedView: boolean;
-    }
-  }
+  _id?: string;
+  known_books: string[];
+  known_craftable_items: string[];
+  options: {
+    isSimplifiedView: boolean;
+  };
+  todos?: TodoItem[]; // Add this line
+}
+
+export interface TodoItem {
+  id: string;
+  text: string;
+  completed: boolean;
+}

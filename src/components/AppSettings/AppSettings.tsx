@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import styles from './AppSettings.module.scss';
-import { DBUserSettings } from '../types';
+import { DBUserSettings } from '../../types';
 
 interface AppSettingsProps {
   isSettingsOpen: boolean;
@@ -12,23 +12,6 @@ interface AppSettingsProps {
 function AppSettings({ isSettingsOpen, setIsSettingsOpen, settings, setSettings }: AppSettingsProps) {
   const settingsDrawerRef = useRef<HTMLDivElement>(null);
 
-  // useEffect(() => {
-  //   const fetchSettings = async () => {
-  //     try {
-  //       const response = await fetch('/api/userSettings');
-  //       const userSettings = await response.json();
-  //       if (userSettings) {
-  //         setSettings({
-  //           ...settings,
-  //           isSimplifiedView: userSettings.options.isSimplifiedView
-  //         });
-  //       }
-  //     } catch (error) {
-  //       console.error('Error fetching user settings:', error);
-  //     }
-  //   };
-  //   fetchSettings();
-  // }, [settings, setSettings]);
 
   const toggleSimplifiedView = async () => {
     const newSettings = {

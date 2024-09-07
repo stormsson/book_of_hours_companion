@@ -86,13 +86,16 @@ $accent-color: #3a506b;
 .stickyHeader {
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100%;
+  right: 0;
   z-index: 1000;
   display: flex;
-  justify-content: flex-end; // Change this to align content to the right
-  align-items: center; // Change this to center vertically
+  justify-content: flex-end;
+  align-items: center;
   padding: 1rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  background-color: $background-color; // Add this to match the app's background
+  background-color: $background-color;
+}
+
+.headerIcons {
+  display: flex;
+  align-items: center;
 }
