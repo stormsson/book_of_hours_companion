@@ -5,8 +5,11 @@ import Tooltip from './Tooltip';
 import TableControls from './TableControls';
 import { useTrackableTable } from '../hooks/useTrackableTable';
 import { WikiUrl, includesIgnoreCase } from '../utils/stringHelpers'; 
-import { tooltip_columns, wiki_columns,ellipsis_columns } from '../utils/constants';
+import { tooltip_columns, wiki_columns, ellipsis_columns } from '../utils/constants';
 import { DBUserSettings } from '../types';
+import { fetchCraftingInfo } from '../app/actions';
+import Markdown from 'react-markdown';
+
 interface TrackableTableProps {
   items: TrackableItem[];
   columns: string[];
@@ -22,9 +25,10 @@ function TrackableTable({ items, columns, storageKey, isCraftableItems, item_typ
   const [filterText, setFilterText] = useState('');
   const [aspectFilter, setAspectFilter] = useState('');
   const [itemTypeFilter, setItemTypeFilter] = useState('');
+  const [openCraftingInfo, setOpenCraftingInfo] = useState<string | null>(null);
+  const [craftingInfoContent, setCraftingInfoContent] = useState<string | null>(null);
 
   let isSimplifiedView = settings.options.isSimplifiedView;
-  console.log('isSimplifiedView', isSimplifiedView);
 
   // Use the custom hook
   const { knownItems, toggleKnownItem } = useTrackableTable(storageKey, settings, setSettings);
@@ -66,8 +70,18 @@ function TrackableTable({ items, columns, storageKey, isCraftableItems, item_typ
     return columns;
   }, [isSimplifiedView, columns, isCraftableItems]);
 
-  const renderCell = (item: TrackableItem, column: string, index: number) => {
+  const handleFetchCraftingInfo = async (item_id: string, item_name: string) => {
+    if (openCraftingInfo === item_id) {
+      setOpenCraftingInfo(null);
+      setCraftingInfoContent(null);
+    } else {
+      setOpenCraftingInfo(item_id);
+      const info = await fetchCraftingInfo(item_id, item_name);
+      setCraftingInfoContent(info?.crafting_info || 'No crafting information available.');
+    }
+  };
 
+  const renderCell = (item: TrackableItem, column: string, index: number) => {
     if (tooltip_columns.includes(column)) {
       return (
         <Tooltip text={item[column]}>
@@ -75,16 +89,24 @@ function TrackableTable({ items, columns, storageKey, isCraftableItems, item_typ
         </Tooltip>
       );
     } else {
-        return (
+      return (
         <div className={ellipsis_columns.includes(column) ? styles.ellipsisCell : ''}>
           {wiki_columns.includes(column) && (
             <a href={WikiUrl(item[column])} target="_blank" rel="noopener noreferrer" className={styles.wikiLink}>
               [🔗]
-          </a>)}
+            </a>
+          )}
+
+          {index === 0 && isCraftableItems && (
+            <span>
+              <a onClick={() => handleFetchCraftingInfo(item.id, item['Item'])}>
+                <span className={styles.descriptionIcon}>[{openCraftingInfo === item.id ? '▼' : '❔'}]</span>
+              </a>
+            </span>
+          )}
           <span> {item[column]}</span>
         </div>
       );
-
     }    
   };
 
@@ -123,21 +145,35 @@ function TrackableTable({ items, columns, storageKey, isCraftableItems, item_typ
           </thead>
           <tbody>
             {sortedAndFilteredItems.map(item => (
-              <tr key={item.id}>
-                <td className={styles.knownColumn}>
-                  <input
-                    type="checkbox"
-                    checked={knownItems.has(item.id)}
-                    onChange={() => toggleKnownItem(item.id)}
-                    className={styles.knownCheckbox}
-                  />
-                </td>
-                {visibleColumns.map((column, index) => (
-                  <td key={`${item.id}-${column}`} className={index === 0 ? styles.firstColumn : ''}>
-                    {renderCell(item, column, index)}
+              <React.Fragment key={item.id}>
+                <tr>
+                  <td className={styles.knownColumn}>
+                    <input
+                      type="checkbox"
+                      checked={knownItems.has(item.id)}
+                      onChange={() => toggleKnownItem(item.id, item['Item'])}
+                      className={styles.knownCheckbox}
+                    />
                   </td>
-                ))}
-              </tr>
+                  {visibleColumns.map((column, index) => (
+                    <td key={`${item.id}-${column}`} className={index === 0 ? styles.firstColumn : ''}>
+                      {renderCell(item, column, index)}
+                    </td>
+                  ))}
+                </tr>
+                {openCraftingInfo === item.id && (
+                  <tr className={styles.craftingInfoRow}>
+                    <td colSpan={visibleColumns.length + 1}>
+                      <div className={styles.craftingInfoContent}>
+                        <Markdown>{craftingInfoContent || ''}</Markdown>
+                        <button onClick={() => {setOpenCraftingInfo(null); setCraftingInfoContent(null);}} className={styles.closeButton}>
+                          Close
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                )}
+              </React.Fragment>
             ))}
           </tbody>
         </table>

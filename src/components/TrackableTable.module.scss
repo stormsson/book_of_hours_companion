@@ -140,3 +140,54 @@
     cursor: pointer;
   }
 }
+
+.craftingInfoRow {
+  td {
+    // This ensures the content takes full width of the table
+    width: 100%;
+  }
+
+  ul {
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    li {
+      list-style-type: square;
+      white-space: pre-wrap;
+    }
+  }
+}
+
+.craftingInfoContent {
+  padding: 1rem;
+  position: relative;
+  max-width: 70%; // Ensure content doesn't exceed table width
+  word-wrap: break-word; // Break long words if necessary
+  overflow-wrap: break-word; // Alternative to word-wrap for better browser support
+  line-height: 1.3;
+
+  p {
+    white-space: pre-wrap; // Preserve whitespace and wrap text
+    max-width: 100%; // Ensure paragraphs don't exceed container width
+  }
+}
+
+.closeButton {
+
+  background-color: $accent-color;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  margin-top: 2rem;
+  font-weight: 600;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: $accent-color;
+  }
+}
+
+.markdownContent {
+  max-width: 100%;
+  white-space: pre-wrap; // Preserve whitespace and wrap text
+  word-break: break-word; // Break words only when necessary
+}

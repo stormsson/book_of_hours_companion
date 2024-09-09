@@ -23,7 +23,6 @@ function AppSettings({ isSettingsOpen, setIsSettingsOpen, settings, setSettings 
     };
     setSettings(newSettings);
     
-    console.log(settings.options, newSettings.options);
     try {
 
       await fetch('/api/userSettings', {

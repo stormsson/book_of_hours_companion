@@ -12,7 +12,8 @@ export const useTrackableTable = (storageKey: string, settings: DBUserSettings, 
 
   const [knownItems, setKnownItems] = useState<Set<string>>(defaultKnownItems);
 
-  const toggleKnownItem = async (itemId: string) => {
+  const toggleKnownItem = async (itemId: string, itemName: string = '') => {
+
     const updatedKnownItems = new Set(knownItems);
     if (updatedKnownItems.has(itemId)) {
       updatedKnownItems.delete(itemId);

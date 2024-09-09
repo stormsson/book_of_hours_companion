@@ -60,3 +60,10 @@ export interface TodoItem {
   text: string;
   completed: boolean;
 }
+export interface DBCraftingItem {
+  _id?: string; // Optional unique identifier for the crafting info
+  item_id: string; // Unique identifier for the crafting item
+  name: string; // Description of the crafting item
+  crafting_info?: string;
+}
+
