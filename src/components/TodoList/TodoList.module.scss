@@ -92,3 +92,17 @@
     background-color: #0056b3;
   }
 }
+
+.removeButton {
+  margin-left: 5px;
+  padding: 2px 5px;
+  background-color: transparent;
+  border: none;
+  color: $text-color;
+  cursor: pointer;
+  font-size: 0.8em;
+
+  &:hover {
+    color: $accent-color;
+  }
+}

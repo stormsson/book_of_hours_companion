@@ -13,7 +13,7 @@ interface TodoItem {
   id: string;
   text: string;
   completed: boolean;
-  subtasks?: TodoItem[]; // Add this line
+  subtasks?: TodoItem[];
 }
 
 function TodoList({ isTodoOpen, setIsTodoOpen, settings, setSettings }: TodoListProps) {
@@ -33,7 +33,7 @@ function TodoList({ isTodoOpen, setIsTodoOpen, settings, setSettings }: TodoList
       id: Date.now().toString(),
       text: '',
       completed: false,
-      subtasks: [] // Initialize subtasks as an empty array
+      subtasks: []
     };
     setTodos([...todos, newTodo]);
     updateSettings([...todos, newTodo]);
@@ -50,7 +50,7 @@ function TodoList({ isTodoOpen, setIsTodoOpen, settings, setSettings }: TodoList
       if (todo.id === parentId) {
         return {
           ...todo,
-          subtasks: [...(todo.subtasks || []), newSubtask] // Add new subtask
+          subtasks: [...(todo.subtasks || []), newSubtask]
         };
       }
       return todo;
@@ -75,6 +75,27 @@ function TodoList({ isTodoOpen, setIsTodoOpen, settings, setSettings }: TodoList
           subtask.id === subtaskId ? { ...subtask, text } : subtask
         );
         return { ...todo, subtasks: updatedSubtasks };
+      }
+      return todo;
+    });
+
+    setTodos(updatedTodos);
+    updateSettings(updatedTodos);
+  };
+
+  const removeTodo = (id: string) => {
+    const updatedTodos = todos.filter(todo => todo.id !== id);
+    setTodos(updatedTodos);
+    updateSettings(updatedTodos);
+  };
+
+  const removeSubtask = (parentId: string, subtaskId: string) => {
+    const updatedTodos = todos.map(todo => {
+      if (todo.id === parentId) {
+        return {
+          ...todo,
+          subtasks: todo.subtasks?.filter(subtask => subtask.id !== subtaskId)
+        };
       }
       return todo;
     });
@@ -123,6 +144,7 @@ function TodoList({ isTodoOpen, setIsTodoOpen, settings, setSettings }: TodoList
                   placeholder="Enter todo item"
                 />
                 <button onClick={() => addSubtask(todo.id)} className={styles.addSubtaskButton}>[+]</button>
+                <button onClick={() => removeTodo(todo.id)} className={styles.removeButton}>[x]</button>
                 {todo.subtasks && todo.subtasks.map(subtask => (
                   <div key={subtask.id} className={styles.subtaskContainer}>
                     <input
@@ -136,6 +158,7 @@ function TodoList({ isTodoOpen, setIsTodoOpen, settings, setSettings }: TodoList
                       onChange={(e) => updateSubtaskText(todo.id, subtask.id, e.target.value)}
                       placeholder="Enter subtask"
                     />
+                    <button onClick={() => removeSubtask(todo.id, subtask.id)} className={styles.removeButton}>[x]</button>
                   </div>
                 ))}
               </div>

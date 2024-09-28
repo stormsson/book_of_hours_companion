@@ -165,7 +165,9 @@ function TrackableTable({ items, columns, storageKey, isCraftableItems, item_typ
                   <tr className={styles.craftingInfoRow}>
                     <td colSpan={visibleColumns.length + 1}>
                       <div className={styles.craftingInfoContent}>
-                        <Markdown>{craftingInfoContent || ''}</Markdown>
+                        <div className={styles.markdownContent}>
+                          <Markdown>{craftingInfoContent || ''}</Markdown>
+                        </div>
                         <button onClick={() => {setOpenCraftingInfo(null); setCraftingInfoContent(null);}} className={styles.closeButton}>
                           Close
                         </button>

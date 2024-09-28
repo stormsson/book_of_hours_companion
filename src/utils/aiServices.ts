@@ -32,8 +32,8 @@ const readCraftingData = async (): Promise<string> => {
     });
 };
 
-const user_prompt = "Assuming I don't have any previous item, how can I craft {item_name}?\n Explain step by step including why the item is needed.Dont return an intro."
-const field_description = "Item: item name, level: complexity of the recipe, required skill: skill to use to craft, extra requirements: what extra ingredients are needed"
+const user_prompt = "Assuming I don't have any previous item, how can I craft {item_name}?\n Explain step by step including why the item is needed.Dont return an intro.Do not add extra information."
+const field_description = "Item: item name, Aspect: which aspect is needed to craf,.level: aspect level required, required skill: required skill to craft, extra requirements: extra ingredients needed"
 
 
 // Generate crafting info using OpenAI
@@ -52,7 +52,7 @@ export const generateCraftingInfoWithOpenAI = async (item_name: string): Promise
       const inputText = `this is the crafting guide of the videogame Book Of Hours: ${craftingData} \n\n each CSV row is a recipe.
       the fields of the CSV are: ${field_description}. ${user_prompt.replace("{item_name}", item_name)}`
       const completion = await llm.invoke(inputText);
-      return completion.content
+      return completion.content as string
       
 };
 
