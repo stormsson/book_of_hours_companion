@@ -12,7 +12,7 @@ import { useState } from 'react';
 
 export async function fetchBooks(): Promise<Book[]> {
     try {
-        const filePath = path.join(process.cwd(), 'src', 'data', 'books.csv');
+        const filePath = path.join(process.cwd(), 'src','app', 'data', 'books.csv');
         const csvText = await fs.readFile(filePath, 'utf-8');
         
         return new Promise((resolve, reject) => {
@@ -48,7 +48,7 @@ const _bulkInsert = async (craftableItems: CraftableItem[]): Promise<boolean> =>
 
 export async function fetchCraftableItems(): Promise<CraftableItem[]> {
     try {
-        const filePath = path.join(process.cwd(), 'src', 'data', 'crafting.csv');
+        const filePath = path.join(process.cwd(), 'src','app', 'data', 'crafting.csv');
         const csvText = await fs.readFile(filePath, 'utf-8');
         
         return new Promise((resolve, reject) => {
