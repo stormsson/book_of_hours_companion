@@ -9,8 +9,17 @@ import { fetchCraftableItems } from '../app/actions';
 function CraftableItemsTab({ settings, setSettings }: { settings: DBUserSettings, setSettings: (settings: DBUserSettings) => void }) {
   const [craftableItems, setCraftableItems] = useState<CraftableItem[]>([]);
 
+
   useEffect(() => {
-    fetchCraftableItems().then(setCraftableItems);
+    const cachedItems = localStorage.getItem('cachedItems');
+    if (cachedItems) {
+      setCraftableItems(JSON.parse(cachedItems));
+    } else {
+      fetchCraftableItems().then(fetchedItems => {
+        setCraftableItems(fetchedItems);
+        localStorage.setItem('cachedItems', JSON.stringify(fetchedItems));
+      });
+    }
   }, []);
 
   const columns = ['Item', 'Aspect', 'Level', 'Required Skill', 'Extra Requirement', 'Result Aspects'];

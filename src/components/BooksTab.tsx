@@ -12,9 +12,15 @@ function BooksTab({ settings, setSettings }: { settings: DBUserSettings, setSett
   const [books, setBooks] = useState<Book[]>([]);
 
   useEffect(() => {
-    // In a real application, you would fetch this data from the CSV file
-    // For now, we'll use a placeholder fetch function
-    fetchBooks().then(setBooks);
+    const cachedBooks = localStorage.getItem('cachedBooks');
+    if (cachedBooks) {
+      setBooks(JSON.parse(cachedBooks));
+    } else {
+      fetchBooks().then(fetchedBooks => {
+        setBooks(fetchedBooks);
+        localStorage.setItem('cachedBooks', JSON.stringify(fetchedBooks));
+      });
+    }
   }, []);
 
 
